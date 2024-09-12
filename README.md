@@ -38,7 +38,7 @@ git status
 git add .
 
 # Commit your changes
-git commit -m "Your detailed commit message here"
+git commit -m "Remembet this is not  killing house anymore, this is real life"
 
 # Push changes to your branch
 git push origin student-username
