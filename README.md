@@ -32,7 +32,7 @@ git status
 git add .
 
 # Commit your changes
-git commit -m "Your detailed commit message here"
+git commit -m "Shape of my heart"
 
 # Push changes to your branch
 git push origin student-username
