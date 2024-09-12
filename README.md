@@ -17,7 +17,7 @@ Welcome to the repository for the Web Component Development Lab. In this project
 First, clone the repository to your local machine using the following command:
 
 ```bash
-git clone [https://github.com/syrym-almaty/IT2-2206-SFT6310-34-Lab.git](https://github.com/syrym-almaty/IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab.git)
+git clone https://github.com/syrym-almaty/IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab.git
 
 cd IT2-2203-SFT6310-31-Lab-Web-Component-Development-Java-EE-Lab-
 
