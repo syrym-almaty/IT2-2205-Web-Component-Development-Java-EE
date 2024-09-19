@@ -1,4 +1,4 @@
-# IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab
+# IT2-2205-Web-Component-Development-Java-EE
 
 ## Overview
 
@@ -23,7 +23,7 @@ https://git-scm.com/downloads
 First, clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/syrym-almaty/IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab.git
+git clone git@github.com:syrym-almaty/IT2-2205-Web-Component-Development-Java-EE.git
 
 cd IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab
 
@@ -54,3 +54,6 @@ git checkout student-username
 
 # Merge the latest main branch changes into your branch
 git merge main
+
+```
+
