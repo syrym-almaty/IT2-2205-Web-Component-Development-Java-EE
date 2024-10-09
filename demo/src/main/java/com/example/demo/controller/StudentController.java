@@ -1,17 +1,26 @@
 package com.example.demo.controller;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
+
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/students")
@@ -52,11 +61,27 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    @Operation(summary = "Update Student", description = "Update an existing student's information")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+        @ApiResponse(responseCode = "400", description = "Invalid input data"),
+        @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
+    }
+    
     @Operation(summary = "Delete Student", description = "Delete a student by their ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
         @ApiResponse(responseCode = "404", description = "Student not found")
     })
+    
     @DeleteMapping("/{id}")
     public void deleteStudent(
             @Parameter(description = "UUID of the student to delete", required = true)
