@@ -3,19 +3,22 @@ package com.example.demo.controller;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/students")
-@Tag(name = "Student Controller", description = "CRUD operations for Students")
+@Validated // Enable validation
 public class StudentController {
 
     @Autowired
@@ -30,20 +33,20 @@ public class StudentController {
 
     @Operation(summary = "Create Student", description = "Create a new student")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Student created successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid input")
+            @ApiResponse(responseCode = "201", description = "Student created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PostMapping
     public Student createStudent(
             @Parameter(description = "Student object to be created", required = true)
-            @RequestBody Student student) {
+            @Valid @RequestBody Student student) { // Use @Valid here
         return studentService.createStudent(student);
     }
 
     @Operation(summary = "Get Student by ID", description = "Retrieve a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @GetMapping("/{id}")
     public Student getStudentById(
@@ -54,13 +57,21 @@ public class StudentController {
 
     @Operation(summary = "Delete Student", description = "Delete a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @DeleteMapping("/{id}")
     public void deleteStudent(
             @Parameter(description = "UUID of the student to delete", required = true)
             @PathVariable UUID id) {
         studentService.deleteStudent(id);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Student> updateStudentPartial(
+            @PathVariable UUID id,
+            @RequestBody Map<String, Object> updates) {
+        Student updatedStudent = studentService.updateStudentPartially(id, updates);
+        return ResponseEntity.ok(updatedStudent);
     }
 }
