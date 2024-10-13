@@ -1,45 +1,42 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import org.hibernate.annotations.GenericGenerator;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
 import java.util.UUID;
 
 @Entity
 public class Student {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(columnDefinition = "uuid")
+    @GeneratedValue
     private UUID id;
 
     @NotBlank(message = "Name is mandatory")
-    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
+    @Size(max = 100, message = "Name must not exceed 100 characters")
     private String name;
 
     @NotBlank(message = "Email is mandatory")
     @Email(message = "Email should be valid")
     private String email;
 
-    // Constructors
-    public Student() {}
+    @NotBlank(message = "Age is mandatory")
+    @Size(min = 1, max = 3, message = "Age must be a valid number")
+    private Integer age;  // Пример дополнительного поля
 
-    public Student(String name, String email) {
-        this.name = name;
-        this.email = email;
+    // Конструкторы
+    public Student() {
     }
 
-    // Getters and Setters
+    public Student(UUID id, String name, String email, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    // Геттеры и сеттеры
     public UUID getId() {
         return id;
     }
@@ -62,5 +59,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
