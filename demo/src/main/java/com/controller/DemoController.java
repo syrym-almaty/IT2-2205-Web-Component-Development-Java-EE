@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/demo")
@@ -45,6 +46,21 @@ public class DemoController {
             @Parameter(description = "User object containing name and email", required = true)
             @RequestBody User user) {
         return new User(user.getName(), user.getEmail());
+    }
+
+    @Operation(summary = "Update Student", description = "Update an existing student's information")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PutMapping("/students/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
     }
 }
 
@@ -97,11 +113,20 @@ class User {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
+}
+
+// A simple POJO class representing a Student
+class Student {
+    private UUID id;
+    private String name;
+    private String email;
+
+    // Constructors, Getters, Setters, etc.
 }
