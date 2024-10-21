@@ -65,7 +65,7 @@ public class StudentController {
     }
 
     /*
-    Update Student
+    Update Studentdocker build --build-arg JAR_FILE=build/libs/\*.jar -t springio/gs-spring-boot-docker .
      */
     @Operation(summary = "Update Student", description = "Update an existing student's information")
     @ApiResponses(value = {
