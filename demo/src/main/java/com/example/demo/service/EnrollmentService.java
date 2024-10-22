@@ -1,12 +1,16 @@
-package com.example.demo.repository;
+package com.example.demo.service;
 
+import com.example.demo.entity.Course;
 import com.example.demo.entity.Student;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.UUID;
+import com.example.demo.exception.BusinessException;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.CourseRepository;
+import com.example.demo.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Repository
-public interface StudentRepository extends JpaRepository<Student, UUID> {
+@Service
+public class EnrollmentService {
     @Autowired
     private StudentRepository studentRepository;
 
