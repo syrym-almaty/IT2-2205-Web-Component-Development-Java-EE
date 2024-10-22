@@ -7,26 +7,28 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
 
+// Аннотация для глобального обработчика исключений
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Обработка исключений ResourceNotFoundException
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
         ErrorResponse error = new ErrorResponse(
-                HttpStatus.NOT_FOUND.value(),
-                ex.getMessage(),
-                LocalDateTime.now()
+                HttpStatus.NOT_FOUND.value(), // Код состояния
+                ex.getMessage(), // Сообщение об ошибке
+                LocalDateTime.now() // Время возникновения ошибки
         );
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND); // Возвращаем ответ с ошибкой и статусом 404
     }
 
-    // You can add more exception handlers here
+    // Вы можете добавить больше обработчиков исключений здесь
 
-    // Inner class for error response
+    // Внутний класс для формата ответа об ошибке
     public static class ErrorResponse {
-        private int status;
-        private String message;
-        private LocalDateTime timestamp;
+        private int status; // Код состояния
+        private String message; // Сообщение об ошибке
+        private LocalDateTime timestamp; // Время возникновения ошибки
 
         public ErrorResponse(int status, String message, LocalDateTime timestamp) {
             this.status = status;
@@ -34,7 +36,7 @@ public class GlobalExceptionHandler {
             this.timestamp = timestamp;
         }
 
-        // Getters and Setters
+        // Геттеры и сеттеры
         public int getStatus() {
             return status;
         }
