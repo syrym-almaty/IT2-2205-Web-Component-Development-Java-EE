@@ -6,6 +6,8 @@ import com.example.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +26,13 @@ public class BookService {
 
     public Book getBookById(UUID id) {
         return bookRepository.findById(id).orElse(null);
+    }
+
+    public List<Book> searchBooks(String keyword) {
+        return bookRepository.findAll()
+                .stream()
+                .filter(book -> book.getTitle().contains(keyword) || book.getAuthor().contains(keyword))
+                .collect(Collectors.toList());
     }
 
     public Book updateBook(UUID id, Book bookDetails) {

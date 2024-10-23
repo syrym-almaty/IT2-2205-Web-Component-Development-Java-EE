@@ -26,6 +26,11 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam String keyword){
+        return bookService.searchBooks(keyword);
+    }
+
     @PostMapping
     public Book createBook(@RequestBody Book book) {
         return bookService.createBook(book);

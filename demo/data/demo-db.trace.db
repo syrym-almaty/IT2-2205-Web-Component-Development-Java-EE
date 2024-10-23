@@ -166,3 +166,15 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 50 more
+2024-10-23 22:28:59.418077+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "BOOKS" не найдена
+Table "BOOKS" not found; SQL statement:
+SELECT * FROM books WHERE (isbn || ' ' || author || ' ' || name) ILIKE '%' || ? || '%' [42102-224]
+2024-10-23 22:30:04.451449+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "BOOKS" не найдена
+Table "BOOKS" not found; SQL statement:
+SELECT * FROM books WHERE (isbn || ' ' || author || ' ' || name) ILIKE '%' || ? || '%' [42102-224]
+2024-10-23 22:30:16.528281+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "BOOKS" не найдена
+Table "BOOKS" not found; SQL statement:
+SELECT * FROM books WHERE (isbn || ' ' || author || ' ' || name) ILIKE '%' || ? || '%' [42102-224]
