@@ -1,35 +1,24 @@
 package com.example.demo.Book;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import java.util.UUID;
 
-@Entity
 public class Book {
+    private UUID id; // Уникальный идентификатор книги
+    private String title; // Название книги
+    private String author; // Автор книги
+    private String isbn; // ISBN книги
+    private boolean available; // Доступность книги
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-    private String title;
-    private String author;
-    private String isbn;
-    private boolean available;
-
-    // Constructors, getters, and setters
-    public Book() {
-    }
-
-    public Book(String title, String author, String isbn, boolean available) {
+    // Конструктор
+    public Book(UUID id, String title, String author, String isbn, boolean available) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.available = available;
     }
 
-    // Getters and Setters
+    // Геттеры и сеттеры
     public UUID getId() {
         return id;
     }

@@ -1,11 +1,11 @@
 package com.example.demo.Book;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class BookService {
@@ -44,5 +44,12 @@ public class BookService {
     // Удаление книги
     public void deleteBook(UUID id) {
         bookRepository.deleteById(id);
+    }
+
+    // Поиск книг по названию или автору
+    public List<Book> searchBooks(String keyword) {
+        return bookRepository.findAll().stream()
+                .filter(book -> book.getTitle().contains(keyword) || book.getAuthor().contains(keyword))
+                .collect(Collectors.toList());
     }
 }
