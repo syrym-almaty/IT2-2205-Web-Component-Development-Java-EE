@@ -1,48 +1,91 @@
 
 package com.example.demo.book;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import java.util.UUID;
 
-@Service
-public class BookService {
+@Entity
+public class Book {
 
-    @Autowired
-    private BookRepository bookRepository;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    // Получение списка всех книг
-    public List<Book> getAllBooks() {
-        return bookRepository.findAll();
+    @NotBlank(message = "Title is mandatory")
+    private String title;
+
+    @NotBlank(message = "Author is mandatory")
+    private String author;
+
+    @Pattern(regexp = "\\d{13}", message = "ISBN must be 13 digits")
+    private String isbn;
+
+    private boolean available;
+
+    // Конструкторы
+    public Book() {
     }
 
-    // Создание новой книги
-    public Book createBook(Book book) {
-        return bookRepository.save(book);
+    // Конструктор для создания нового объекта книги
+    public Book(String title, String author, String isbn, boolean available) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.available = available;
     }
 
-    // Получение книги по ID
-    public Book getBookById(UUID id) {
-        return bookRepository.findById(id).orElse(null);
+    // Конструктор, принимающий UUID
+    public Book(UUID id, String title, String author, String isbn, boolean available) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.available = available;
     }
 
-    // Обновление существующей книги
-    public Book updateBook(UUID id, Book bookDetails) {
-        Book book = bookRepository.findById(id).orElse(null);
-        if (book != null) {
-            book.setTitle(bookDetails.getTitle());
-            book.setAuthor(bookDetails.getAuthor());
-            book.setIsbn(bookDetails.getIsbn());
-            book.setAvailable(bookDetails.isAvailable());
-            return bookRepository.save(book);
-        }
-        return null; // Или выбросить исключение, если книга не найдена
+    // Геттеры и сеттеры
+    public UUID getId() {
+        return id;
     }
 
-    // Удаление книги
-    public void deleteBook(UUID id) {
-        bookRepository.deleteById(id);
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }
