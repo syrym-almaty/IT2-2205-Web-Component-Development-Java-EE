@@ -1,6 +1,8 @@
 package com.example.demo.exception;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -37,7 +39,10 @@ public class GlobalExceptionHandler {
     }
 
     // Inner class for error response
+    @Setter
+    @Getter
     public static class ErrorResponse {
+        // Getters and Setters
         private int status;
         private String message;
         private LocalDateTime timestamp;
@@ -48,29 +53,5 @@ public class GlobalExceptionHandler {
             this.timestamp = timestamp;
         }
 
-        // Getters and Setters
-        public int getStatus() {
-            return status;
-        }
-
-        public void setStatus(int status) {
-            this.status = status;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public LocalDateTime getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(LocalDateTime timestamp) {
-            this.timestamp = timestamp;
-        }
     }
 }
