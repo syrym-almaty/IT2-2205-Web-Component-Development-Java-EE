@@ -37,6 +37,13 @@ public class BookController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam String keyword) {
+        return bookRepository.findAll().stream()
+                .filter(book -> book.getTitle().toString().contains(keyword) || book.getAuthor().toString().contains(keyword))
+                .collect(Collectors.toList());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable UUID id, @RequestBody Book bookDetails) {
         Book updatedBook = bookService.updateBook(id, bookDetails);
@@ -52,3 +59,4 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 }
+
