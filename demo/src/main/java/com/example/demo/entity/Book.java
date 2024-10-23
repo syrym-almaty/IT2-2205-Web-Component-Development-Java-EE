@@ -2,33 +2,45 @@ package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;  // Убедитесь, что используете @Id из JPA
-import org.hibernate.annotations.GenericGenerator;
-
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import java.util.UUID;
 
 @Entity
 public class Book {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @NotBlank(message = "Title is mandatory")
     private String title;
 
+    @NotBlank(message = "Author is mandatory")
     private String author;
 
+    @Pattern(regexp = "\\d{13}", message = "ISBN must be 13 digits")
     private String isbn;
 
     private boolean available;
 
-    // Конструктор по умолчанию
+    // Конструкторы
     public Book() {
     }
 
-    // Конструктор с параметрами
+    // Конструктор для создания нового объекта книги
     public Book(String title, String author, String isbn, boolean available) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.available = available;
+    }
+
+    // Конструктор, принимающий UUID
+    public Book(UUID id, String title, String author, String isbn, boolean available) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
