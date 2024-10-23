@@ -1,3 +1,4 @@
+
 package com.example.demo.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -97,7 +98,7 @@ class User {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
