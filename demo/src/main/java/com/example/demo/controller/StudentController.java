@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
@@ -24,6 +25,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/students")
+@PreAuthorize("hasRole('STUDENT')")
 @Tag(name = "Student Controller", description = "CRUD operations for Students")
 public class StudentController {
 

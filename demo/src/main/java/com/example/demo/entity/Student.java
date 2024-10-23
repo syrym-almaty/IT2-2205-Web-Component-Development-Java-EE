@@ -1,15 +1,23 @@
 package com.example.demo.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import org.hibernate.annotations.GenericGenerator;
-import java.util.UUID;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Student {
 
+    @SuppressWarnings("deprecation")
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -47,11 +55,34 @@ public class Student {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    @ManyToMany
+    @JoinTable(
+        name = "enrollments",
+        joinColumns = @JoinColumn(name = "student_id"),
+        inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private Set<Course> courses = new HashSet<>();
+
+    // GPA field
+    private Double gpa;
+
+    public Double getGpa() {
+        return gpa;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
     }
 }
