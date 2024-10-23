@@ -2,32 +2,36 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "courses")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Setter
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Course name is required")
-    private String name;
+    @NotBlank
+    private String title;
 
-    @NotBlank(message = "Course code is required")
-    @Column(unique = true)
-    private String code;
+    @OneToMany(mappedBy = "course")
+    private Set<Grade> grades;
 
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students = new HashSet<>();
-
+    @Getter
     private Integer credits;
+
+    @ManyToMany // Устанавливаем связь ManyToMany с студентами
+    @JoinTable(
+            name = "course_student", // Имя промежуточной таблицы
+            joinColumns = @JoinColumn(name = "course_id"), // Внешний ключ для Course
+            inverseJoinColumns = @JoinColumn(name = "student_id") // Внешний ключ для Student
+    )
+    private Set<Student> students; // Изменяем на Set<Student> для хранения студентов
 }
