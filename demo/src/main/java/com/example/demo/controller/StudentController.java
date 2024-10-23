@@ -78,4 +78,16 @@ public class StudentController {
             @PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
+
+    @Operation(summary = "Get Student GPA", description = "Retrieve GPA for a student by their ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved GPA"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @GetMapping("/{id}/gpa")
+    public Double getStudentGPA(
+            @Parameter(description = "UUID of the student to retrieve GPA", required = true)
+            @PathVariable UUID id) {
+        return studentService.calculateGPA(id);
+    }
 }
