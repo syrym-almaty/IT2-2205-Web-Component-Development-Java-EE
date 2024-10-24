@@ -1,0 +1,123 @@
+[33mcommit 56091f040507cd11ce0407e33d175ada63debc13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mLab5-1[m[33m)[m
+Author: 022Ali02 <sayrashev04@gmail.com>
+Date:   Thu Oct 24 09:06:03 2024 +0500
+
+    Test
+
+[33mcommit d196f5006c7ac6fa59ffb8deee67df6b3b36733d[m[33m ([m[1;31morigin/Lab4[m[33m, [m[1;32mLab4[m[33m)[m
+Author: 022Ali02 <sayrashev04@gmail.com>
+Date:   Thu Oct 24 08:45:07 2024 +0500
+
+    Описание изменений
+
+[33mcommit acee9daa946a6c00b1bcc4e8e072a517893aced0[m[33m ([m[1;31morigin/student-Sairashev[m[33m, [m[1;31morigin/student-Damir-Lab5-Practice[m[33m, [m[1;31morigin/student-Adil-mid[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/update-Damir[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Oct 17 08:30:35 2024 +0500
+
+    test
+
+[33mcommit b6f607c4dba835d5cec298ce939c9a0c1c3d073a[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Oct 10 02:26:00 2024 +0500
+
+    test
+
+[33mcommit 731804397300c4f45b6307914ad64e5345e2a50c[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Oct 3 08:16:04 2024 +0500
+
+    labs
+
+[33mcommit eb6e55a575fb007c86a3eb90c15a39fa1b13a560[m[33m ([m[1;31morigin/test[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 26 09:12:09 2024 +0500
+
+    test
+
+[33mcommit 2413ab594a1f532583b6913b20a3c4fdd454f809[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 26 08:44:00 2024 +0500
+
+    Your commit message
+
+[33mcommit 68a435968c339465e51168b1a85a5f09e32cb244[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 26 08:22:12 2024 +0500
+
+    Update README.md
+
+[33mcommit 99068f9e13dfb964f576b6f9aa5776b11e1ed6aa[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 19 13:27:05 2024 +0500
+
+    new structure
+
+[33mcommit 0e8d25d357817be00df280c248df5c678e8c495d[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 19 09:48:50 2024 +0500
+
+    Update README.md
+
+[33mcommit 9b29ff3b7248122f6f0113220148f755f48be061[m
+Merge: a87c894 a0d3932
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 09:48:59 2024 +0500
+
+    Merge branch 'main' of https://github.com/syrym-almaty/IT2-2205-SFT6310-33-Lab-Web-Component-Development-Java-EE-Lab
+
+[33mcommit a87c8943d4f44c604af439b94cd7b8caa04e53df[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 09:48:20 2024 +0500
+
+    adding docker
+
+[33mcommit a0d39325db891a37e7039ae16a8037ece2b87638[m[33m ([m[1;31morigin/student-Alikhan[m[33m)[m
+Merge: a1ee9be e7dea38
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:59:48 2024 +0500
+
+    Merge pull request #1 from syrym-almaty/syrym-almaty-patch-1
+    
+    Update README.md
+
+[33mcommit e7dea389188a8f184f063f7ebf96942bef576b47[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:59:10 2024 +0500
+
+    Update README.md
+
+[33mcommit a1ee9be6f27988a6987f292dc2f8442713ec4912[m[33m ([m[1;31morigin/student-Edil-Token[m[33m, [m[1;31morigin/EdilToken[m[33m)[m
+Author: syrym-almaty <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:27:44 2024 +0500
+
+    priject added
+
+[33mcommit d114cef22f12070e43dda9d5f4879db711d412c9[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:23:39 2024 +0500
+
+    Update README.md
+
+[33mcommit dc7c9782ebc287fa586e470dbbcbe40e7508437d[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:23:10 2024 +0500
+
+    Update README.md
+
+[33mcommit 3e97493b3373d21d86682892660bc9f812473397[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:22:34 2024 +0500
+
+    Update README.md
+
+[33mcommit ed46655eab20a95d78b45c9971c184905c44b8a4[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:21:16 2024 +0500
+
+    Update README.md
+
+[33mcommit 427cbaa745e84bd6214bb737f7793ba483c8298a[m
+Author: Syrym Zhakypbekov <s.zhakypbekov@iitu.edu.kz>
+Date:   Thu Sep 12 08:20:22 2024 +0500
+
+    Initial commit
