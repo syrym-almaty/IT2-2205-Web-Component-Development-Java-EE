@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,7 +17,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "users") 
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     private String username;
@@ -24,7 +25,7 @@ public class User implements UserDetails {
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>(); // Инициализация множества ролей
 
     // Implement methods from UserDetails interface
 
@@ -43,6 +44,18 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEnabled() {
+        this.enabled = true;
     }
 
     @Override
