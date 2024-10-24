@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "grades")
 @Data
@@ -27,3 +29,11 @@ public class Grade {
     private Double score;
 }
 
+@Embeddable
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+class GradeId implements Serializable {
+    private Long studentId;
+    private Long courseId;
+}

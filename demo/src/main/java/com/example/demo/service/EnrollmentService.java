@@ -16,7 +16,7 @@ public class EnrollmentService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public void enrollStudentInCourse(Long studentId, Long courseId) {
+    public void enrollStudentInCourse(Long studentId, Long courseId) throws BusinessException {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
 
