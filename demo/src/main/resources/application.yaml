@@ -1,6 +1,13 @@
 spring:
   application:
     name: demo
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Ov23liBpPxSLUOALt5Kh
+            clientSecret: e91e6ef061be075871175570d49752763461d3e6
 
   datasource:
     url: jdbc:h2:file:./data/demo-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
